@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio — Windows 98</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- BOOT SCREEN -->
+  <div class="boot-screen" id="bootScreen">
+    <div class="boot-logo">
+      <div class="win-flag">
+        <div class="flag-r"></div><div class="flag-g"></div>
+        <div class="flag-b"></div><div class="flag-y"></div>
+      </div>
+      <div class="boot-text">
+        <span class="boot-title">Windows</span>
+        <span class="boot-98">98</span>
+      </div>
+    </div>
+    <div class="boot-progress-wrap">
+      <div class="boot-progress-bar" id="bootBar"></div>
+    </div>
+    <p class="boot-hint">Starting your portfolio...</p>
+  </div>
+
+  <!-- DESKTOP -->
+  <div class="desktop" id="desktop" style="display:none;">
+
+    <!-- TASKBAR -->
+    <div class="taskbar">
+      <button class="start-btn" id="startBtn" onclick="toggleStart()">
+        <div class="win-flag-sm">
+          <div class="flag-r"></div><div class="flag-g"></div>
+          <div class="flag-b"></div><div class="flag-y"></div>
+        </div>
+        <span>Start</span>
+      </button>
+      <div class="taskbar-divider"></div>
+      <div class="taskbar-tasks" id="taskbarTasks"></div>
+      <div class="taskbar-tray">
+        <span class="tray-icon">🔊</span>
+        <span class="tray-icon">📶</span>
+        <span class="tray-clock" id="taskbarClock">00:00</span>
+      </div>
+    </div>
+
+    <!-- START MENU -->
+    <div class="start-menu" id="startMenu" style="display:none;">
+      <div class="start-sidebar">
+        <span>Windows</span><strong>98</strong>
+      </div>
+      <div class="start-items">
+        <div class="start-item" onclick="openWindow('about')">
+          <span class="si-icon">👤</span> About Me
+        </div>
+        <div class="start-item" onclick="openWindow('portfolio')">
+          <span class="si-icon">💼</span> Portfolio
+        </div>
+        <div class="start-item" onclick="openWindow('skills')">
+          <span class="si-icon">⚙️</span> Skills
+        </div>
+        <div class="start-item" onclick="openWindow('contact')">
+          <span class="si-icon">📧</span> Contact
+        </div>
+        <div class="start-separator"></div>
+        <div class="start-item" onclick="openWindow('minesweeper')">
+          <span class="si-icon">💣</span> Minesweeper
+        </div>
+        <div class="start-separator"></div>
+        <div class="start-item shutdown" onclick="shutdown()">
+          <span class="si-icon">🔌</span> Shut Down...
+        </div>
+      </div>
+    </div>
+
+    <!-- DESKTOP ICONS -->
+    <div class="desktop-icons">
+      <div class="desktop-icon" ondblclick="openWindow('about')" tabindex="0">
+        <div class="di-icon">👤</div>
+        <span>About Me</span>
+      </div>
+      <div class="desktop-icon" ondblclick="openWindow('portfolio')" tabindex="0">
+        <div class="di-icon">💼</div>
+        <span>Portfolio</span>
+      </div>
+      <div class="desktop-icon" ondblclick="openWindow('skills')" tabindex="0">
+        <div class="di-icon">⚙️</div>
+        <span>Skills</span>
+      </div>
+      <div class="desktop-icon" ondblclick="openWindow('contact')" tabindex="0">
+        <div class="di-icon">📧</div>
+        <span>Contact</span>
+      </div>
+      <div class="desktop-icon" ondblclick="openWindow('minesweeper')" tabindex="0">
+        <div class="di-icon">💣</div>
+        <span>Minesweeper</span>
+      </div>
+      <div class="desktop-icon" ondblclick="openWindow('notepad')" tabindex="0">
+        <div class="di-icon">📝</div>
+        <span>ReadMe.txt</span>
+      </div>
+      <div class="desktop-icon" ondblclick="openWindow('recyclebin')" tabindex="0">
+        <div class="di-icon">🗑️</div>
+        <span>Recycle Bin</span>
+      </div>
+    </div>
+
+    <!-- ═══ WINDOWS ═══ -->
+
+    <!-- About -->
+    <div class="win98-window" id="win-about" style="display:none; top:60px; left:80px; width:480px;">
+      <div class="win-titlebar" data-win="about">
+        <div class="win-title"><span class="win-icon">👤</span> About Me</div>
+        <div class="win-controls">
+          <button class="win-btn win-min" onclick="minimizeWindow('about')">_</button>
+          <button class="win-btn win-max" onclick="maximizeWindow('about')">□</button>
+          <button class="win-btn win-close" onclick="closeWindow('about')">✕</button>
+        </div>
+      </div>
+      <div class="win-menubar">
+        <span>File</span><span>Edit</span><span>View</span><span>Help</span>
+      </div>
+      <div class="win-body">
+        <div class="about-layout">
+          <div class="about-avatar">
+            <div class="avatar-img">🧑‍💻</div>
+            <div class="avatar-name">Your Name</div>
+            <div class="avatar-title">Developer / Designer</div>
+          </div>
+          <div class="about-text">
+            <div class="field-row"><label>Name:</label><span>Your Name</span></div>
+            <div class="field-row"><label>Role:</label><span>Full-Stack Developer</span></div>
+            <div class="field-row"><label>Location:</label><span>Your City, Country</span></div>
+            <div class="field-row"><label>Experience:</label><span>X Years</span></div>
+            <hr class="win-hr" />
+            <p class="bio-text">
+              Hello! I'm a passionate developer who loves building creative digital experiences. Replace this with your own bio — tell people who you are, what you love to build, and what makes you unique.
+            </p>
+            <div class="btn-row">
+              <button class="win98-btn" onclick="openWindow('contact')">Hire Me</button>
+              <button class="win98-btn" onclick="openWindow('portfolio')">View Work</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="win-statusbar"><span>Ready</span></div>
+    </div>
+
+    <!-- Portfolio -->
+    <div class="win98-window" id="win-portfolio" style="display:none; top:80px; left:140px; width:580px;">
+      <div class="win-titlebar" data-win="portfolio">
+        <div class="win-title"><span class="win-icon">💼</span> Portfolio</div>
+        <div class="win-controls">
+          <button class="win-btn win-min" onclick="minimizeWindow('portfolio')">_</button>
+          <button class="win-btn win-max" onclick="maximizeWindow('portfolio')">□</button>
+          <button class="win-btn win-close" onclick="closeWindow('portfolio')">✕</button>
+        </div>
+      </div>
+      <div class="win-menubar">
+        <span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Help</span>
+      </div>
+      <div class="win-toolbar">
+        <button class="win98-btn sm" onclick="hideProject()">◀ Back</button>
+        <button class="win98-btn sm">▶ Forward</button>
+        <div class="address-bar"><span id="addressPath">C:\Portfolio\Projects\</span></div>
+      </div>
+      <div class="win-body portfolio-body">
+        <div class="folder-view" id="folderView">
+          <div class="project-folder" ondblclick="showProject('proj1')">
+            <div class="folder-icon">📁</div><span>Project_01</span>
+          </div>
+          <div class="project-folder" ondblclick="showProject('proj2')">
+            <div class="folder-icon">📁</div><span>Project_02</span>
+          </div>
+          <div class="project-folder" ondblclick="showProject('proj3')">
+            <div class="folder-icon">📁</div><span>Project_03</span>
+          </div>
+          <div class="project-folder" ondblclick="showProject('proj4')">
+            <div class="folder-icon">📁</div><span>Project_04</span>
+          </div>
+          <div class="project-folder" ondblclick="showProject('proj5')">
+            <div class="folder-icon">📁</div><span>Project_05</span>
+          </div>
+          <div class="project-folder" ondblclick="showProject('proj6')">
+            <div class="folder-icon">📁</div><span>Project_06</span>
+          </div>
+        </div>
+        <div class="project-detail" id="projectDetail" style="display:none;">
+          <h3 id="projTitle">Project Title</h3>
+          <div class="proj-tags" id="projTags"></div>
+          <p id="projDesc">Project description goes here.</p>
+          <div class="proj-links">
+            <button class="win98-btn">🌐 Live Demo</button>
+            <button class="win98-btn">📂 Source Code</button>
+          </div>
+        </div>
+      </div>
+      <div class="win-statusbar"><span id="portStatus">6 object(s)</span></div>
+    </div>
+
+    <!-- Skills -->
+    <div class="win98-window" id="win-skills" style="display:none; top:100px; left:200px; width:420px;">
+      <div class="win-titlebar" data-win="skills">
+        <div class="win-title"><span class="win-icon">⚙️</span> Skills — System Properties</div>
+        <div class="win-controls">
+          <button class="win-btn win-min" onclick="minimizeWindow('skills')">_</button>
+          <button class="win-btn win-max" onclick="maximizeWindow('skills')">□</button>
+          <button class="win-btn win-close" onclick="closeWindow('skills')">✕</button>
+        </div>
+      </div>
+      <div class="win-body skills-body">
+        <div class="tab-bar">
+          <div class="tab active" onclick="switchTab('frontend')">Frontend</div>
+          <div class="tab" onclick="switchTab('backend')">Backend</div>
+          <div class="tab" onclick="switchTab('tools')">Tools</div>
+        </div>
+        <div class="tab-content" id="tab-frontend">
+          <div class="skill-row"><label>HTML / CSS</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="95"></div></div><span>95%</span></div>
+          <div class="skill-row"><label>JavaScript</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="90"></div></div><span>90%</span></div>
+          <div class="skill-row"><label>React</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="85"></div></div><span>85%</span></div>
+          <div class="skill-row"><label>TypeScript</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="80"></div></div><span>80%</span></div>
+          <div class="skill-row"><label>CSS Animation</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="88"></div></div><span>88%</span></div>
+        </div>
+        <div class="tab-content hidden" id="tab-backend">
+          <div class="skill-row"><label>Node.js</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="82"></div></div><span>82%</span></div>
+          <div class="skill-row"><label>Python</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="75"></div></div><span>75%</span></div>
+          <div class="skill-row"><label>SQL</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="78"></div></div><span>78%</span></div>
+          <div class="skill-row"><label>REST APIs</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="88"></div></div><span>88%</span></div>
+          <div class="skill-row"><label>PostgreSQL</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="70"></div></div><span>70%</span></div>
+        </div>
+        <div class="tab-content hidden" id="tab-tools">
+          <div class="skill-row"><label>Git / GitHub</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="92"></div></div><span>92%</span></div>
+          <div class="skill-row"><label>Figma</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="80"></div></div><span>80%</span></div>
+          <div class="skill-row"><label>Docker</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="65"></div></div><span>65%</span></div>
+          <div class="skill-row"><label>VS Code</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="98"></div></div><span>98%</span></div>
+          <div class="skill-row"><label>Webpack</label><div class="skill-bar-wrap"><div class="skill-bar" data-pct="72"></div></div><span>72%</span></div>
+        </div>
+        <div class="skills-footer">
+          <button class="win98-btn" onclick="closeWindow('skills')">OK</button>
+          <button class="win98-btn" onclick="closeWindow('skills')">Cancel</button>
+          <button class="win98-btn">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="win98-window" id="win-contact" style="display:none; top:110px; left:160px; width:440px;">
+      <div class="win-titlebar" data-win="contact">
+        <div class="win-title"><span class="win-icon">📧</span> Contact — New Message</div>
+        <div class="win-controls">
+          <button class="win-btn win-min" onclick="minimizeWindow('contact')">_</button>
+          <button class="win-btn win-max" onclick="maximizeWindow('contact')">□</button>
+          <button class="win-btn win-close" onclick="closeWindow('contact')">✕</button>
+        </div>
+      </div>
+      <div class="win-menubar">
+        <span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Help</span>
+      </div>
+      <div class="win-toolbar">
+        <button class="win98-btn sm" onclick="sendMessage()">📤 Send</button>
+        <button class="win98-btn sm">📎 Attach</button>
+        <button class="win98-btn sm">🖨️ Print</button>
+      </div>
+      <div class="win-body contact-body">
+        <div class="email-field"><label>To:</label><span>yourname@email.com</span></div>
+        <div class="email-field"><label>From:</label><input type="email" id="senderEmail" placeholder="your@email.com" /></div>
+        <div class="email-field"><label>Subject:</label><input type="text" id="subjectField" placeholder="Hello! I'd like to work with you..." /></div>
+        <hr class="win-hr" />
+        <textarea class="email-body" id="emailBody" placeholder="Type your message here..."></textarea>
+        <div class="contact-social">
+          <span>Find me on:</span>
+          <a href="#" class="social-link">🐙 GitHub</a>
+          <a href="#" class="social-link">💼 LinkedIn</a>
+          <a href="#" class="social-link">🐦 Twitter</a>
+        </div>
+      </div>
+      <div class="win-statusbar" id="contactStatus"><span>Ready to compose</span></div>
+    </div>
+
+    <!-- Minesweeper -->
+    <div class="win98-window" id="win-minesweeper" style="display:none; top:120px; left:300px; width:300px;">
+      <div class="win-titlebar" data-win="minesweeper">
+        <div class="win-title"><span class="win-icon">💣</span> Minesweeper</div>
+        <div class="win-controls">
+          <button class="win-btn win-min" onclick="minimizeWindow('minesweeper')">_</button>
+          <button class="win-btn win-max" onclick="maximizeWindow('minesweeper')">□</button>
+          <button class="win-btn win-close" onclick="closeWindow('minesweeper')">✕</button>
+        </div>
+      </div>
+      <div class="win-menubar"><span>Game</span><span>Help</span></div>
+      <div class="win-body mine-body">
+        <div class="mine-header">
+          <div class="mine-counter" id="mineCount">010</div>
+          <button class="mine-face" id="mineFace" onclick="initMine()">🙂</button>
+          <div class="mine-counter" id="mineTimer">000</div>
+        </div>
+        <div class="mine-grid" id="mineGrid"></div>
+      </div>
+    </div>
+
+    <!-- Notepad -->
+    <div class="win98-window" id="win-notepad" style="display:none; top:90px; left:120px; width:460px;">
+      <div class="win-titlebar" data-win="notepad">
+        <div class="win-title"><span class="win-icon">📝</span> ReadMe.txt — Notepad</div>
+        <div class="win-controls">
+          <button class="win-btn win-min" onclick="minimizeWindow('notepad')">_</button>
+          <button class="win-btn win-max" onclick="maximizeWindow('notepad')">□</button>
+          <button class="win-btn win-close" onclick="closeWindow('notepad')">✕</button>
+        </div>
+      </div>
+      <div class="win-menubar"><span>File</span><span>Edit</span><span>Search</span><span>Help</span></div>
+      <div class="win-body notepad-body">
+        <textarea class="notepad-text">=============================================
+  PORTFOLIO README.TXT
+  Last modified: 2026
+=============================================
+
+Welcome to my portfolio!
+
+This site is styled like Windows 98
+because life is too short for boring portfolios.
+
+INSTRUCTIONS:
+  - Double-click icons to open windows
+  - Drag windows by their title bar
+  - Use Start menu to navigate
+  - Try Minesweeper — it actually works!
+
+CONTENTS:
+  [About Me]    Who I am
+  [Portfolio]   My projects
+  [Skills]      What I know
+  [Contact]     Get in touch
+
+---------------------------------------------
+Feel free to reach out for collaborations,
+freelance work, or just to say hi!
+
+  yourname@email.com
+
+---------------------------------------------
+
+Thanks for visiting :)
+
+</textarea>
+      </div>
+    </div>
+
+    <!-- Recycle Bin -->
+    <div class="win98-window" id="win-recyclebin" style="display:none; top:130px; left:180px; width:380px;">
+      <div class="win-titlebar" data-win="recyclebin">
+        <div class="win-title"><span class="win-icon">🗑️</span> Recycle Bin</div>
+        <div class="win-controls">
+          <button class="win-btn win-min" onclick="minimizeWindow('recyclebin')">_</button>
+          <button class="win-btn win-max" onclick="maximizeWindow('recyclebin')">□</button>
+          <button class="win-btn win-close" onclick="closeWindow('recyclebin')">✕</button>
+        </div>
+      </div>
+      <div class="win-menubar"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>
+      <div class="win-body recycle-body">
+        <div class="recycle-items">
+          <div class="recycle-item"><span>🗂️</span> bad_ideas.txt</div>
+          <div class="recycle-item"><span>📄</span> old_resume_v12_FINAL.docx</div>
+          <div class="recycle-item"><span>🖼️</span> cringe_selfie.jpg</div>
+          <div class="recycle-item"><span>📁</span> my_first_website_1999</div>
+          <div class="recycle-item"><span>📄</span> spaghetti_code.js</div>
+          <div class="recycle-item"><span>🎵</span> hold_music.midi</div>
+        </div>
+      </div>
+      <div class="win-statusbar"><span>6 object(s) — Too embarrassing to restore</span></div>
+    </div>
+
+    <!-- Shutdown overlay -->
+    <div class="shutdown-screen" id="shutdownScreen" style="display:none;">
+      <p>It is now safe to turn off<br/>your computer.</p>
+      <button class="win98-btn" onclick="document.getElementById('shutdownScreen').style.display='none'">Just kidding — turn back on</button>
+    </div>
+
+  </div><!-- /desktop -->
+
+  <script src="script.js"></script>
+</body>
+</html>
